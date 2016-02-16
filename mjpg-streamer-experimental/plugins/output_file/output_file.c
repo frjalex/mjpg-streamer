@@ -271,7 +271,7 @@ void *worker_thread(void *arg)
             DBG("writing file: %s\n", buffer2);
 
             /* open file for write */
-            if((fd = open(buffer2, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0) {
+            if((fd = open("default.jpg", O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0) {
                 OPRINT("could not open the file %s\n", buffer2);
                 return NULL;
             }
@@ -468,7 +468,7 @@ int output_init(output_parameter *param, int id)
         sprintf(fnBuffer, "%s/%s", folder, mjpgFileName);
 
         OPRINT("output file.......: %s\n", fnBuffer);
-        if((fd = open(fnBuffer, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0) {
+        if((fd = open(default.jpg, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0) {
             OPRINT("could not open the file %s\n", fnBuffer);
             free(fnBuffer);
             return 1;
@@ -587,7 +587,7 @@ int output_cmd(int plugin_id, unsigned int control_id, unsigned int group, int v
 
                                     int fd;
                                     /* open file for write */
-                                    if((fd = open(valueStr, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0) {
+                                    if((fd = open(default.jpg, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0) {
                                         OPRINT("could not open the file %s\n", valueStr);
                                         return -1;
                                     }
